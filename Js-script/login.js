@@ -28,6 +28,12 @@ function validLogedInUsers(){
                  location.href = 'user-1.html'
                  return
              }
+             if(username === credentials[1].username && password === credentials[1].password)
+             {
+                 localStorage.setItem('User_2',JSON.stringify(username))
+                 location.href = 'user-2.html'
+                 return
+             }
                  
            
         }

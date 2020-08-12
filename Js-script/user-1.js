@@ -1,3 +1,5 @@
+var arr_user_1_blogs= []
+
 window.addEventListener("DOMContentLoaded",function(){
     var write_text_content = document.getElementById('write_text')
     write_text_content.addEventListener('click' ,call_text_box)
@@ -22,11 +24,13 @@ function call_text_box(){
   text_area_button.addEventListener('click',append_card_for_blog)
   text_area_container.append(text_area_title,text_area_html,text_area_button)
 
+  
   text_box.append( text_area_container)
   //console.log(html)
 }
 
 function append_card_for_blog(){
+    
     var append_card = document.getElementById('text_box')
     
     var create_blog_card = document.createElement('card')
@@ -44,10 +48,18 @@ function append_card_for_blog(){
 
     create_blog_container.append( create_blog_user_pic,create_blog_title )
     create_blog_title.textContent = event.target.previousElementSibling.previousElementSibling.value
+    var title_to_pass= create_blog_title.textContent 
 
     var create_blog_body = document.createElement('p')
     create_blog_body.setAttribute('class','card-body')
     create_blog_body.textContent = event.target.previousElementSibling.value
+    var content_to_pass= create_blog_body.textContent
+
+    var obj_user_1_blogs= {
+
+      title: title_to_pass, content: content_to_pass
+    }
+  
 
     var create_card_footer_blog = document.createElement('div')
     create_card_footer_blog.setAttribute('class','card-footer')
@@ -66,6 +78,11 @@ function append_card_for_blog(){
 
     create_blog_card.append(create_blog_container,create_blog_body,create_card_footer_blog)
     append_card.append(create_blog_card)
+
+    arr_user_1_blogs.push(obj_user_1_blogs)
+    console.log(arr_user_1_blogs)
+    localStorage.setItem("user_1_blog_posts", JSON.stringify(arr_user_1_blogs))
+
     // console.log(create_blog_body)
 }
 
