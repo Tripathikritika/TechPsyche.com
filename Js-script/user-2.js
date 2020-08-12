@@ -1,5 +1,4 @@
 
-
 window.onload= function()
 {
     var other_user_blogs= JSON.parse(localStorage.getItem("user_1_blog_posts"))
