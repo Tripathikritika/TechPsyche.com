@@ -1,4 +1,5 @@
-let arr_user_1_blogs= []
+let arr_user_1_blogs = []
+let arr_myUser_blogs = []
 
 window.addEventListener("DOMContentLoaded",function(){
     let write_text_content = document.getElementById('write_text')
@@ -25,7 +26,8 @@ function call_text_box(){
   text_area_container.append(text_area_title,text_area_html,text_area_button)
 
   
-  text_box.append( text_area_container)
+  text_box.append( text_area_container )
+
   //console.log(html)
 }
 
@@ -56,11 +58,10 @@ function append_card_for_blog(){
     let content_to_pass= create_blog_body.textContent
 
     let obj_user_1_blogs= {
-
-      title: title_to_pass, content: content_to_pass
+      title: title_to_pass, 
+      content: content_to_pass
     }
   
-
     let create_card_footer_blog = document.createElement('div')
     create_card_footer_blog.setAttribute('class','card-footer')
 
@@ -74,7 +75,6 @@ function append_card_for_blog(){
     create_footer_delete.innerHTML = `<i class="fas fa-trash-alt"></i>`
     create_footer_delete.addEventListener('click',()=>{
         create_blog_card.remove()
-
         delete_blog()
     })
 
@@ -83,16 +83,17 @@ function append_card_for_blog(){
     create_blog_card.append(create_blog_container,create_blog_body,create_card_footer_blog)
     append_card.append(create_blog_card)
 
+    arr_user_1_blogs= JSON.parse(localStorage.getItem("user_1_blog_posts")) || []
     arr_user_1_blogs.push(obj_user_1_blogs)
-    console.log(arr_user_1_blogs)
     localStorage.setItem("user_1_blog_posts", JSON.stringify(arr_user_1_blogs))
+
     // console.log(create_blog_body)
-}
 
-function edit_blog(){
-    
-}
+    arr_myUser_blogs = JSON.parse(localStorage.getItem("my_post_blog")) || []
+    arr_myUser_blogs.push(obj_user_1_blogs)
+    localStorage.setItem("my_post_blog", JSON.stringify( arr_myUser_blogs))
 
+}
 function delete_blog(){
     let title_to_be_deleted = event.target.parentElement.parentElement.previousElementSibling.previousElementSibling.lastChild.textContent
 
@@ -108,3 +109,13 @@ function delete_blog(){
     user_blog_1 = JSON.stringify(user_blog_1)
     localStorage.setItem('user_1_blog_posts',user_blog_1)
 }
+
+function edit_blog(){
+    console.log("Edit Task...");
+    var listItem = this.parentNode.previousElementSibling;
+    console.log(listItem)
+
+}
+
+    
+    

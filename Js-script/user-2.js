@@ -17,7 +17,7 @@ function handle_other_user_blogs(blogs)
     for(var i=0; i<blogs.length; i++)
     {
         var blog_container= document.createElement("div") //card
-        blog_container.setAttribute("class", "card col-5")
+        blog_container.setAttribute("class", "card col-6")
 
         var blog_post_header= document.createElement("div") //card header
         blog_post_header.setAttribute("class", "card-header")
