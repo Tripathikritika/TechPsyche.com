@@ -4,3 +4,12 @@
     height: 50px;
     margin-left: 87%;
 }
+#textBox{
+    margin-top: 10%;
+    height: 200px;
+}
+
+.blog_post_title_img{
+    height: 50px;
+    width: 50px;
+}
