@@ -22,8 +22,14 @@ function validLogedInUsers(){
     for( var i = 0 ; i < credentials.length ; i++){
 
         if(username === credentials[i].username && password === credentials[i].password){
-            localStorage.setItem('validUser',JSON.stringify(username))
-            location.href = 'index.html'
+             if(username === credentials[0].username && password === credentials[0].password)
+             {
+                 localStorage.setItem('User_1',JSON.stringify(username))
+                 location.href = 'user-1.html'
+                 return
+             }
+                 
+           
         }
         else {
             var wrongPassword = document.getElementById('wrongCredentials')
