@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded",function(){
 })
 
 function call_text_box(){
+
   let text_box = document.getElementById('text_box')
 
   let text_area_container = document.createElement('div')
@@ -163,12 +164,12 @@ function handle_other_user_blogs(blogs)
 
         var other_user_blog_footer_like = document.createElement('div')  //like button
         other_user_blog_footer_like.setAttribute('class','float-left mr-2')
-        other_user_blog_footer_like.innerHTML = `<i class="far fa-edit"></i>`
+        other_user_blog_footer_like.innerHTML = `<i class="fas fa-heart"></i>`
         other_user_blog_footer_like.addEventListener('click',like_post)
 
         var other_user_blog_footer_comment = document.createElement('div') //comment button
-        other_user_blog_footer_comment.setAttribute('class','float-left')
-        other_user_blog_footer_comment.innerHTML = `<i class="fas fa-trash-alt"></i>`
+        other_user_blog_footer_comment.setAttribute('class','float-right')
+        other_user_blog_footer_comment.innerHTML = `<i class="fas fa-comments"></i>`
         other_user_blog_footer_comment.addEventListener('click',comment_on_post)
 
         other_user_blog_footer.append(other_user_blog_footer_like, other_user_blog_footer_comment) //appending like and
@@ -181,10 +182,16 @@ function handle_other_user_blogs(blogs)
         
     }
 }
+
+function onLoadCartNumbers(){
+    // var productNumbers = localStorage.getItem('cartNumbers')
+    // if(productNumbers){
+    //     document.querySelector('.cart span').textContent = productNumbers ;
+    // }
+}  
+
+function like_post(){
     
-function like_post()
-{
-    // function to like post
 }
 
 function comment_on_post()

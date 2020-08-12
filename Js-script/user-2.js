@@ -136,17 +136,17 @@ function handle_other_user_blogs(blogs)
 
         var other_user_blog_footer_like = document.createElement('div')  //like button
         other_user_blog_footer_like.setAttribute('class','float-left mr-2')
-        other_user_blog_footer_like.innerHTML = `<i class="far fa-edit"></i>`
+        other_user_blog_footer_like.innerHTML = `<i class="fas fa-heart"></i>`
         other_user_blog_footer_like.addEventListener('click',like_post)
 
         var other_user_blog_footer_comment = document.createElement('div') //comment button
-        other_user_blog_footer_comment.setAttribute('class','float-left')
-        other_user_blog_footer_comment.innerHTML = `<i class="fas fa-trash-alt"></i>`
+        other_user_blog_footer_comment.setAttribute('class','float-right')
+        other_user_blog_footer_comment.innerHTML = `<i class="fas fa-comments"></i>`
         other_user_blog_footer_comment.addEventListener('click',comment_on_post)
 
         other_user_blog_footer.append(other_user_blog_footer_like, other_user_blog_footer_comment) //appending like and
-                                                                                                    //comment button to
-                                                                                                    // card footer
+        //comment button to  // card footer
+
         blog_post_header.append(create_blog_user_pic, blog_post_title) //appending title and user immage to card header
         blog_container.append(blog_post_header, blog_post_content, other_user_blog_footer)
         other_user_blogs_div_u2.append(blog_container)                                                                                            
