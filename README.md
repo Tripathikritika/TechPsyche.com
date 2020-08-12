@@ -1,1 +1,1 @@
-# TechPsyche.com
+Blog Post
