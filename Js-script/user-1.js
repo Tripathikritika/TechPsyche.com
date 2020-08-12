@@ -83,8 +83,8 @@ function append_card_for_blog(){
     create_blog_card.append(create_blog_container,create_blog_body,create_card_footer_blog)
     append_card.append(create_blog_card)
 
+    arr_user_1_blogs= JSON.parse(localStorage.getItem("user_1_blog_posts")) || []
     arr_user_1_blogs.push(obj_user_1_blogs)
-    console.log(arr_user_1_blogs)
     localStorage.setItem("user_1_blog_posts", JSON.stringify(arr_user_1_blogs))
     // console.log(create_blog_body)
 }
