@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded",function(){
     let write_text_content = document.getElementById('write_text')
     write_text_content.addEventListener('click' ,call_text_box)
 
-    var other_user_blogs = JSON.parse(localStorage.getItem("user_2_blog_posts"))
+    var other_user_blogs = JSON.parse(localStorage.getItem("user_2_blog_posts")) || []
     handle_other_user_blogs(other_user_blogs)
 
 })
@@ -53,9 +53,11 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
     }
 
 
+    
+
+    arr_user_1_blogs= JSON.parse(localStorage.getItem("user_1_blog_posts")) || []
     arr_user_1_blogs.push(obj_user_1_blogs)
     localStorage.setItem("user_1_blog_posts", JSON.stringify(arr_user_1_blogs))
-    console.log(obj_user_1_blogs)
     non_refreshable_card(arr_user_1_blogs)
   
 }
@@ -137,8 +139,10 @@ function handle_other_user_blogs(blogs)
     var other_user_blogs_div_u2 = document.getElementById("other_user_blogs_u1")
     other_user_blogs_div_u2.innerHTML= ""
 
-    for(var i=0; i<blogs.length; i++)
+    if(blogs.length!=null ||blogs.length!=0)
     {
+        for(var i=0; i<blogs.length; i++)
+        {
         var blog_container= document.createElement("div") //card
         blog_container.setAttribute("class", "card col-6 mb-3 blog-post-u1")
 
@@ -180,7 +184,9 @@ function handle_other_user_blogs(blogs)
         other_user_blogs_div_u2.append(blog_container)                                                                                            
 
         
+        }
     }
+    
 }
 
 function onLoadCartNumbers(){

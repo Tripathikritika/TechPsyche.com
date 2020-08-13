@@ -1,0 +1,40 @@
+#login
+{
+    margin-left: 87%;
+}
+
+#nav
+{
+    width: 100%;
+}
+
+#intro
+{
+    padding: 10% 30% 10% 30%;
+    background-image: url("./../photos/landing_page_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+#logo
+{
+    padding: 5%;
+    background-color: rgba(0, 0, 0, 0.829)
+}
+
+#logo>p
+{
+    color: white;
+}
+
+#main_logo
+{
+    font-size: 70px;
+}
+
+#tagline
+{
+    font-size: 20px;
+}
