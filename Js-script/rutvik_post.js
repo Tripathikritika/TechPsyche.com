@@ -24,8 +24,12 @@ function handle_other_user_blogs(card_items){
         create_blog_user_pic.src = "./../photos/user-1_Rutvik_profile_pic.jpg"
         create_blog_user_pic.setAttribute('class','img-fluid rounded-circle blog_post_title_img float-left')
     
-        create_blog_container.append( create_blog_user_pic,create_blog_title )
+        
         create_blog_title.textContent = "Title: " + card_items[i].title
+
+        let blog_category= document.createElement("p")
+        blog_category.textContent= "Category: "+card_items[i].category
+        blog_category.setAttribute("class", "small float-right")
          
         let create_blog_body = document.createElement('p')
         create_blog_body.setAttribute('class','card-body')
@@ -47,6 +51,7 @@ function handle_other_user_blogs(card_items){
             delete_blog()
         })
         
+    create_blog_container.append( create_blog_user_pic,create_blog_title, blog_category )    
     create_card_footer_blog.append(create_footer_edit , create_footer_delete)
     create_blog_card.append(create_blog_container,create_blog_body,create_card_footer_blog)
     append_card.append(create_blog_card)

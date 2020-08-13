@@ -16,7 +16,25 @@ function call_text_box(){
     text_area_container.setAttribute('class','form-group m-5 p-5')
   
     let text_area_title= document.createElement("input")
-    text_area_title.setAttribute("class", "form-control")
+  text_area_title.setAttribute("class", "form-control col-7 float-left")
+
+  let text_area_select = document.createElement('select')
+  text_area_select.setAttribute('class','form-control col-5 float-left')
+
+  let text_area_option = document.createElement('option')
+  text_area_option.textContent = 'Choose Category.... '
+  text_area_option.value = 'Choose '
+  let text_area_option_1 = document.createElement('option')
+  text_area_option_1.textContent = 'Technology '
+  text_area_option_1.value = 'Technology '
+  let text_area_option_2 = document.createElement('option')
+  text_area_option_2.textContent = 'Psychology'
+  text_area_option_2.value = 'Psychology'
+  let text_area_option_3 = document.createElement('option')
+  text_area_option_3.textContent = 'Miscellaneous'
+  text_area_option_3.value = 'Miscellaneous'
+
+  text_area_select.append(text_area_option,text_area_option_1,text_area_option_2,text_area_option_3)
     let text_area_html = document.createElement('textarea')
     text_area_html.setAttribute('class','form-control')
     text_area_html.setAttribute('rows','10')
@@ -27,7 +45,7 @@ function call_text_box(){
     text_area_button.setAttribute('class','btn  btn-primary btn-lg')
     text_area_button.addEventListener('click',append_card_for_blog)
   
-    text_area_container.append(text_area_title,text_area_html,text_area_button)
+    text_area_container.append(text_area_title,text_area_select,text_area_html,text_area_button)
   
     text_box.append( text_area_container)
   
@@ -38,8 +56,14 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
 
     alert("Your Blog post had been Added!!")
     let create_blog_title = document.createElement('h3')
-    create_blog_title.textContent = event.target.previousElementSibling.previousElementSibling.value
+    create_blog_title.textContent = event.target.previousElementSibling.previousElementSibling.previousElementSibling.value
     let title_to_pass= create_blog_title.textContent 
+
+    let title_category_select = document.createElement('p')
+    title_category_select= event.target.previousElementSibling.previousElementSibling.value
+    console.log(title_category_select)
+    let blog_category= title_category_select
+    
 
     let create_blog_body = document.createElement('p')
     //create_blog_body.setAttribute('class','card-body')
@@ -48,64 +72,18 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
 
     let obj_user_2_blogs= {
       title: title_to_pass, 
-      content: content_to_pass
+      content: content_to_pass,
+      category: blog_category
     }    
     console.log(obj_user_2_blogs)
     
     arr_user_2_blogs= JSON.parse(localStorage.getItem("user_2_blog_posts")) || []
     arr_user_2_blogs.unshift(obj_user_2_blogs)
     localStorage.setItem("user_2_blog_posts", JSON.stringify(arr_user_2_blogs))
-    // non_refreshable_card(arr_user_2_blogs)
   
 }
 
-// function non_refreshable_card(card_items){ //append kar reha hai cards 
 
-//     let append_card = document.getElementById('blogs_section_user_2')
-//     append_card.textContent = ""
-
-//     for( var i = 0 ; i < card_items.length ; i++){
-//         let create_blog_card = document.createElement('card')
-//         create_blog_card.setAttribute('class','card border border-dark ')
-    
-//         let create_blog_container = document.createElement('div')
-//         create_blog_container.setAttribute('class','card-header')
-    
-//         let create_blog_title = document.createElement('h3')
-//         create_blog_title.setAttribute('class','float-left')
-    
-//         let create_blog_user_pic = document.createElement('img')
-//         create_blog_user_pic.src = "./../photos/user-1_Kritika_profile_pic.jpg"
-//         create_blog_user_pic.setAttribute('class','img-fluid rounded-circle blog_post_title_img float-left')
-    
-//         create_blog_container.append( create_blog_user_pic,create_blog_title )
-//         create_blog_title.textContent = card_items[i].title
-         
-//         let create_blog_body = document.createElement('p')
-//         create_blog_body.setAttribute('class','card-body')
-//         create_blog_body.textContent = card_items[i].content
-        
-//         let create_card_footer_blog = document.createElement('div')
-//         create_card_footer_blog.setAttribute('class','card-footer')
-    
-//         let create_footer_edit = document.createElement('div')  
-//         create_footer_edit.setAttribute('class','float-left')
-//         create_footer_edit.innerHTML = `<i class="far fa-edit"></i>`
-//         create_footer_edit.addEventListener('click',edit_blog)
-    
-//         let create_footer_delete = document.createElement('div')
-//         create_footer_delete.setAttribute('class','float-right')
-//         create_footer_delete.innerHTML = `<i class="fas fa-trash-alt"></i>`
-//         create_footer_delete.addEventListener('click',()=>{
-//             create_blog_card.remove()
-//             delete_blog()
-//         })
-        
-//     create_card_footer_blog.append(create_footer_edit , create_footer_delete)
-//     create_blog_card.append(create_blog_container,create_blog_body,create_card_footer_blog)
-//     append_card.append(create_blog_card)
-//     }
-// }
 
 function handle_other_user_blogs(blogs)
 {
@@ -130,6 +108,9 @@ function handle_other_user_blogs(blogs)
         blog_post_title.innerHTML= "Title: "+blogs[i].title
         console.log(blogs[i].title)
         
+        var blog_category= document.createElement("p")
+        blog_category.textContent= "Category: "+blogs[i].category
+        blog_category.setAttribute("class", "small float-right")
 
         var blog_post_content= document.createElement("p") //card body
         blog_post_content.setAttribute("class", "card-body")
@@ -153,7 +134,7 @@ function handle_other_user_blogs(blogs)
         other_user_blog_footer.append(other_user_blog_footer_like, other_user_blog_footer_comment) //appending like and
         //comment button to  // card footer
 
-        blog_post_header.append(create_blog_user_pic, blog_post_title) //appending title and user immage to card header
+        blog_post_header.append(create_blog_user_pic, blog_post_title, blog_category) //appending title and user immage to card header
         blog_container.append(blog_post_header, blog_post_content, other_user_blog_footer)
         other_user_blogs_div_u2.append(blog_container)                                                                                            
 
