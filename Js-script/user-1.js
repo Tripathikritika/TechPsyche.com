@@ -51,10 +51,6 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
       title: title_to_pass, 
       content: content_to_pass
     }
-
-
-    
-
     arr_user_1_blogs= JSON.parse(localStorage.getItem("user_1_blog_posts")) || []
     arr_user_1_blogs.push(obj_user_1_blogs)
     localStorage.setItem("user_1_blog_posts", JSON.stringify(arr_user_1_blogs))
