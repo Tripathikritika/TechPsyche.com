@@ -53,7 +53,7 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
       content: content_to_pass
     }
     arr_user_1_blogs= JSON.parse(localStorage.getItem("user_1_blog_posts")) || []
-    arr_user_1_blogs.push(obj_user_1_blogs)
+    arr_user_1_blogs.unshift(obj_user_1_blogs)
     localStorage.setItem("user_1_blog_posts", JSON.stringify(arr_user_1_blogs))
     // non_refreshable_card(arr_user_1_blogs)
   
@@ -141,10 +141,10 @@ function handle_other_user_blogs(blogs)
         for(var i=0; i<blogs.length; i++)
         {
         var blog_container= document.createElement("div") //card
-        blog_container.setAttribute("class", "card col-6 mb-3 blog-post-u1")
+        blog_container.setAttribute("class", "card blog-post-u1 border border-dark col-10 offset-1 my-2 p-2")
 
         var blog_post_header= document.createElement("div") //card header
-        blog_post_header.setAttribute("class", "card-header")
+        blog_post_header.setAttribute("class", "card-header bg-dark text-white")
 
         var create_blog_user_pic = document.createElement('img') //img for card header
         create_blog_user_pic.src = "./../photos/user-1_Kritika_profile_pic.jpg"
@@ -161,7 +161,7 @@ function handle_other_user_blogs(blogs)
         blog_post_content.textContent= blogs[i].content
 
         var other_user_blog_footer = document.createElement('div') //card footer
-        other_user_blog_footer.setAttribute('class','card-footer')
+        other_user_blog_footer.setAttribute('class','card-footer bg-dark text-white')
 
         var other_user_blog_footer_like = document.createElement('div')  //like button
         other_user_blog_footer_like.setAttribute('class','float-left mr-2')

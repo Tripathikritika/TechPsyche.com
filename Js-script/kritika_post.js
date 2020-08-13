@@ -11,27 +11,27 @@ function handle_other_user_blogs(card_items){
 
     for( var i = 0 ; i < card_items.length ; i++){
         let create_blog_card = document.createElement('card')
-        create_blog_card.setAttribute('class','card border border-dark ')
+        create_blog_card.setAttribute('class','card border border-dark col-10 offset-1 my-2 p-2')
     
         let create_blog_container = document.createElement('div')
-        create_blog_container.setAttribute('class','card-header')
+        create_blog_container.setAttribute('class','card-header bg-dark text-white')
     
         let create_blog_title = document.createElement('h3')
-        create_blog_title.setAttribute('class','float-left')
+        create_blog_title.setAttribute('class','float-left ml-2')
     
         let create_blog_user_pic = document.createElement('img')
         create_blog_user_pic.src = "./../photos/user-1_Kritika_profile_pic.jpg"
         create_blog_user_pic.setAttribute('class','img-fluid rounded-circle blog_post_title_img float-left')
     
         create_blog_container.append( create_blog_user_pic,create_blog_title )
-        create_blog_title.textContent = card_items[i].title
+        create_blog_title.textContent = "Title: "+ card_items[i].title
          
         let create_blog_body = document.createElement('p')
         create_blog_body.setAttribute('class','card-body')
         create_blog_body.textContent = card_items[i].content
         
         let create_card_footer_blog = document.createElement('div')
-        create_card_footer_blog.setAttribute('class','card-footer')
+        create_card_footer_blog.setAttribute('class','card-footer  bg-dark text-white')
     
         let create_footer_edit = document.createElement('div')  
         create_footer_edit.setAttribute('class','float-left')
