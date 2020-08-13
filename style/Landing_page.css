@@ -43,3 +43,27 @@
 {
     padding: 5%;
 }
+
+#split_card_2
+{
+    background-image: url("./../photos/landing_page_card_img_1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.flex-box
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-box>div
+{
+    width: 50%;
+}
+
+.pills-nav
+{
+    background-color: rgba(252, 240, 218, 0.911);
+}
