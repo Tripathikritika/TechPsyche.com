@@ -1,4 +1,5 @@
 let arr_user_1_blogs = []
+let flag_for_like = false
 //let arr_myUser_blogs = []
 
 window.addEventListener("DOMContentLoaded",function(){
@@ -17,8 +18,28 @@ function call_text_box(){
   let text_area_container = document.createElement('div')
   text_area_container.setAttribute('class','form-group m-5 p-5')
 
+
   let text_area_title= document.createElement("input")
-  text_area_title.setAttribute("class", "form-control")
+  text_area_title.setAttribute("class", "form-control col-7 float-left")
+
+  let text_area_select = document.createElement('select')
+  text_area_select.setAttribute('class','form-control col-5 float-left')
+
+  let text_area_option = document.createElement('option')
+  text_area_option.textContent = 'Choose Category.... '
+  text_area_option.value = 'Choose '
+  let text_area_option_1 = document.createElement('option')
+  text_area_option_1.textContent = 'Technology '
+  text_area_option_1.value = 'Technology '
+  let text_area_option_2 = document.createElement('option')
+  text_area_option_2.textContent = 'Psychology'
+  text_area_option_2.value = 'Psychology'
+  let text_area_option_3 = document.createElement('option')
+  text_area_option_3.textContent = 'Miscellaneous'
+  text_area_option_3.value = 'Miscellaneous'
+
+  text_area_select.append(text_area_option,text_area_option_1,text_area_option_2,text_area_option_3)
+
   let text_area_html = document.createElement('textarea')
   text_area_html.setAttribute('class','form-control')
   text_area_html.setAttribute('rows','10')
@@ -29,7 +50,7 @@ function call_text_box(){
   text_area_button.setAttribute('class','btn  btn-primary btn-lg')
   text_area_button.addEventListener('click',  append_card_for_blog)
 
-  text_area_container.append(text_area_title,text_area_html,text_area_button)
+  text_area_container.append(text_area_title,text_area_select,text_area_html,text_area_button)
 
   text_box.append( text_area_container)
 
@@ -43,6 +64,7 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
     create_blog_title.textContent = event.target.previousElementSibling.previousElementSibling.value
     let title_to_pass= create_blog_title.textContent 
 
+    let title_category_select = document.createElement('')
     let create_blog_body = document.createElement('p')
     //create_blog_body.setAttribute('class','card-body')
     create_blog_body.textContent = event.target.previousElementSibling.value
@@ -50,7 +72,8 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
 
     let obj_user_1_blogs= {
       title: title_to_pass, 
-      content: content_to_pass
+      content: content_to_pass,
+      category : blog_category
     }
     arr_user_1_blogs= JSON.parse(localStorage.getItem("user_1_blog_posts")) || []
     arr_user_1_blogs.unshift(obj_user_1_blogs)
@@ -166,7 +189,10 @@ function handle_other_user_blogs(blogs)
         var other_user_blog_footer_like = document.createElement('div')  //like button
         other_user_blog_footer_like.setAttribute('class','float-left mr-2')
         other_user_blog_footer_like.innerHTML = `<i class="fas fa-heart"></i>`
-        other_user_blog_footer_like.addEventListener('click',like_post)
+        other_user_blog_footer_like.addEventListener('click',() =>{
+            
+            like_post(event.target)
+        })
 
         var other_user_blog_footer_comment = document.createElement('div') //comment button
         other_user_blog_footer_comment.setAttribute('class','float-right')
@@ -187,8 +213,15 @@ function handle_other_user_blogs(blogs)
 }
   
 
-function like_post(){
-    
+function like_post(liked_items){
+    flag_for_like = !flag_for_like
+    if( flag_for_like === true){
+        liked_items.setAttribute('style','color:red')
+    }
+    else{
+
+        liked_items.removeAttribute('style')
+    }
 }
 
 function comment_on_post()

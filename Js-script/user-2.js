@@ -1,4 +1,6 @@
 let arr_user_2_blogs = []
+let flag_for_like = false
+
 window.onload= function()
 {
     let write_text_content = document.getElementById('write_text')
@@ -139,7 +141,9 @@ function handle_other_user_blogs(blogs)
         var other_user_blog_footer_like = document.createElement('div')  //like button
         other_user_blog_footer_like.setAttribute('class','float-left mr-2')
         other_user_blog_footer_like.innerHTML = `<i class="fas fa-heart"></i>`
-        other_user_blog_footer_like.addEventListener('click',like_post)
+        other_user_blog_footer_like.addEventListener('click',() =>{
+            like_post(event.target)
+        })
 
         var other_user_blog_footer_comment = document.createElement('div') //comment button
         other_user_blog_footer_comment.setAttribute('class','float-right')
@@ -180,10 +184,19 @@ function handle_other_user_blogs(blogs)
 
 // }
 
-function like_post()
-{ 
-   
+
+function like_post(liked_items){
+
+    flag_for_like = !flag_for_like
+    if( flag_for_like === true){
+        liked_items.setAttribute('style','color:red')
+    }
+    else{
+
+        liked_items.removeAttribute('style')
+    }
 }
+
 
 function comment_on_post()
 {
