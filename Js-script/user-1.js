@@ -182,13 +182,7 @@ function handle_other_user_blogs(blogs)
         
     }
 }
-
-function onLoadCartNumbers(){
-    // var productNumbers = localStorage.getItem('cartNumbers')
-    // if(productNumbers){
-    //     document.querySelector('.cart span').textContent = productNumbers ;
-    // }
-}  
+  
 
 function like_post(){
     

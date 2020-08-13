@@ -179,8 +179,8 @@ function edit_blog(){
 }
 
 function like_post()
-{
-    // function to like post
+{ 
+   
 }
 
 function comment_on_post()

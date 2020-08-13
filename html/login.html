@@ -6,24 +6,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="./../style/login.css">
     <title>LOGIN PAGE</title>
+    <style>
+        .bg-whites{
+            background-color: #deb887;
+        }
+    </style>
 </head>
-<body class="m-4">
-    <div class="container bg-white p-5" id="border">
+<body class="m-4 bg-light">
+    <div class="container bg-whites p-5 col-5" id="border">
         <div class="row">
-            <div class="col-6 offset-3">
+            <div class="col-10 offset-1">
                 <form>
                     <div class="form-group ">
-                      <label for="email">Email address</label>
-                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                      <label for="email" class="font-weight-bold">Email address</label>
+                      <input type="email" class="form-control " id="email" aria-describedby="emailHelp" placeholder="Email" >
                     </div>
                     <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password">
+                      <label for="password" class="font-weight-bold">Password</label>
+                      <input type="password" class="form-control" id="password" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <div id="wrongCredentials"></div>
+                        <div id="wrongCredentials" class="font-weight-bold"></div>
                     </div>
-                    <input type="submit" value="LOGIN" class="btn btn-primary btn-lg offset-5">
+                    <input type="submit" value="LOGIN" class="btn  btn-lg offset-4 font-weight-bold">
                 </form>
             </div>
         </div>
