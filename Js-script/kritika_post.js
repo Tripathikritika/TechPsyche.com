@@ -22,8 +22,12 @@ function handle_other_user_blogs(card_items){
         let create_blog_user_pic = document.createElement('img')
         create_blog_user_pic.src = "./../photos/user-1_Kritika_profile_pic.jpg"
         create_blog_user_pic.setAttribute('class','img-fluid rounded-circle blog_post_title_img float-left')
+
+        let blog_category= document.createElement("p")
+        blog_category.textContent= "Category: "+card_items[i].category
+        blog_category.setAttribute("class", "small float-right")
     
-        create_blog_container.append( create_blog_user_pic,create_blog_title )
+        create_blog_container.append( create_blog_user_pic,create_blog_title, blog_category )
         create_blog_title.textContent = "Title: "+ card_items[i].title
          
         let create_blog_body = document.createElement('p')
