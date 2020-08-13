@@ -1,4 +1,4 @@
-Title of the Project
+
 ### Blog application and named it as TechPhysche.com
 
 A Brief About the project
