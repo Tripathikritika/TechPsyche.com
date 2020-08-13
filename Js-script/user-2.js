@@ -48,9 +48,13 @@ function append_card_for_blog(){//woh store kar reha hai local storage main
       content: content_to_pass
     }
 
+    
+    
+    console.log(obj_user_2_blogs)
+    
+    arr_user_2_blogs= JSON.parse(localStorage.getItem("user_2_blog_posts")) || []
     arr_user_2_blogs.push(obj_user_2_blogs)
     localStorage.setItem("user_2_blog_posts", JSON.stringify(arr_user_2_blogs))
-    console.log(obj_user_2_blogs)
     non_refreshable_card(arr_user_2_blogs)
   
 }
