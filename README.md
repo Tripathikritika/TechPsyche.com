@@ -15,6 +15,7 @@ Build with :
 3. Bootstrap for styling
 4. Local Storage for storing data and retrieving them
 5. Javascript for logical implementation
+6. Font Awesome for icons
 
 Features of the Project:
 1. Added two users names as User-1 and User-2
