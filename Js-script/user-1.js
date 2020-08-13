@@ -59,7 +59,7 @@ function call_text_box(){
 
 function append_card_for_blog(){//woh store kar reha hai local storage main
 
-    alert("Your Blog Post have been added!")
+    alert("Your Blog Post have been added!") //alert 
     let create_blog_title = document.createElement('h3')
     create_blog_title.textContent = event.target.previousElementSibling.previousElementSibling.previousElementSibling.value
     let title_to_pass= create_blog_title.textContent 
